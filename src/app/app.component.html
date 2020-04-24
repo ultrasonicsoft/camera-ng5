@@ -1,41 +1,51 @@
 <div class="container">
   <div style="text-align:center">
     <h1>
-      <span class="label label-success">Working with Camera using Angular</span>
-    </h1>    
+      <span class="badge badge-light">Working with Camera using Angular 9</span>
+    </h1>
   </div>
 
-  <div class="row" style="text-align:right">
-      <h3>
-        <span class="label label-warning">Balram Chavan </span>
+  <div class="row" style="border:1px none white">
+      <h3 class="col-lg-4" style="border:1px none white">
+        <span class="badge badge-light">Balram Chavan / PB</span>
       </h3>
-      <div class="row" >
-        <div class="col-md-1 pull-right" >
-          <h4 >
+      <!-- <div class="row" > -->
+        <div class="col-lg-2 offset-lg-5" style="border:1px none white">
+          <h4 style="text-align:right">
             <a href="https://www.linkedin.com/in/balram-chavan-957511116/" target="_blank">LinkedIn</a>
           </h4>
         </div>
-        <div class="col-md-1 pull-right">
-          <h4>
+        <div class="col-lg-1" style="border:1px none white">
+          <h4 style="text-align:right">
             <a href="https://github.com/ultrasonicsoft" target="_blank">GitHub</a>
           </h4>
         </div>
-      </div>
-    </div>
-
-  <div class="row">
-    <button (click)="start()" class="btn btn-primary">Play</button>
-    <button (click)="toggleControls()" class="btn btn-success">Toggle Controls</button>
-    <button (click)="pause()" class="btn btn-warning">Pause</button>
-    <button (click)="resume()" class="btn btn-info">Resume</button>
-    <button (click)="sound()" class="btn btn-danger">Play with Sound</button>
+      <!-- </div> -->
   </div>
 
   <div class="row">
-    <div class="col-md-12">
+    <button (click)="start()" class="btn btn-primary">Start Camera</button>&nbsp;
+    <button (click)="toggleControls()" class="btn btn-success">Toggle Controls</button>&nbsp;
+    <button (click)="pause()" class="btn btn-warning">Pause</button>&nbsp;
+    <button (click)="resume()" class="btn btn-info">Resume</button>&nbsp;
+    <button (click)="sound()" class="btn btn-danger">Play with Sound</button>&nbsp;
+    <button (click)="startRec()" class="btn btn-outline-danger" [disabled]="!isCameraOn || isRecording">Start Recording</button>&nbsp;
+    <button (click)="stopRec()" class="btn btn-outline-danger" [disabled]="!isRecording">Stop Recording</button>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
       <div class="text-center">
         <h3>
-          <video #videoElement></video>
+          <video #videoElement muted="muted"></video>
+        </h3>
+      </div>
+
+    </div>
+    <div class="col-lg-6">
+      <div class="text-center">
+        <h3 [style.display]="recordingDone==true?'block':'none'">
+          <video #recordedVideo controls ></video>
         </h3>
       </div>
 
