@@ -10,7 +10,7 @@ For that, we'd need "MediaRecorder" object and for that we'd need a @types packa
 
 This is the line of code:
 
-  /// <reference types="@types/dom-mediacapture-record" />
+  	/// &lt;reference types="@types/dom-mediacapture-record" /&gt;
 
 Another change is that this fork uses angular.json in lieu of angular-cli.json.
 
